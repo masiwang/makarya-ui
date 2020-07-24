@@ -8,6 +8,9 @@ import Home from './screens/core/pages/Home';
 import FreshToday from './screens/core/pages/FreshToday'
 import Product from './screens/core/pages/Product'
 
+//test
+import MarketSayur from './screens/core/pages/MarketSayur'
+
 import Main from './screens/core/Main';
 
 class App extends Component{
@@ -19,16 +22,17 @@ class App extends Component{
   }
   render(){
     return(
-      <Router>
-          {localStorage.getItem('isLogin') ? <Redirect to="/"/> : <Redirect to="/"/>}
-           <Route exact path="/" component={Main}/>
-           <Route exact path="/landing" component={Landing}/>
-           <Route exact path="/login" component={Login}/>
-           <Route exact path="/register" component={Register}/>
-           <Route exact path="/home" component={Home}/>
-           <Route exact path="/fresh-today" component={FreshToday}/>
-           <Route exact path="/product" component={Product}/>
-       </Router>
+      <MarketSayur/>
+      // <Router>
+      //     {localStorage.getItem('isLogin') ? <Redirect to="/"/> : <Redirect to="/"/>}
+      //      <Route exact path="/" component={Main}/>
+      //      <Route exact path="/landing" component={Landing}/>
+      //      <Route exact path="/login" component={Login}/>
+      //      <Route exact path="/register" component={Register}/>
+      //      <Route exact path="/home" component={Home}/>
+      //      <Route exact path="/fresh-today" component={FreshToday}/>
+      //      <Route exact path="/product" component={Product}/>
+      //  </Router>
     )
   }
 }
