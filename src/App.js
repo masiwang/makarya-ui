@@ -9,7 +9,7 @@ import FreshToday from './screens/core/pages/FreshToday'
 import Product from './screens/core/pages/Product'
 
 //test
-import MarketSayur from './screens/core/pages/MarketSayur'
+import Notification from './screens/core/pages/Main_Notification'
 
 import Main from './screens/core/Main';
 
@@ -22,7 +22,6 @@ class App extends Component{
   }
   render(){
     return(
-      <MarketSayur/>
       // <Router>
       //     {localStorage.getItem('isLogin') ? <Redirect to="/"/> : <Redirect to="/"/>}
       //      <Route exact path="/" component={Main}/>
@@ -33,6 +32,7 @@ class App extends Component{
       //      <Route exact path="/fresh-today" component={FreshToday}/>
       //      <Route exact path="/product" component={Product}/>
       //  </Router>
+      <Notification/>
     )
   }
 }

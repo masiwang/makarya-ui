@@ -1,8 +1,21 @@
-import React, {Component, useState} from 'react';
-import { IconContext } from 'react-icons';
-import { FaHome, FaChartLine, FaMoneyCheckAlt, FaBell, FaUserAlt } from 'react-icons/fa';
+import React, {Component, useState} from 'react'
+// bootstrap
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import Button from 'react-bootstrap/Button'
+import { FaHome, FaNewspaper, FaHeart, FaBell, FaUserAlt } from 'react-icons/fa';
 import Home from './pages/Home';
 
+function NavIcon(props){
+    return (
+        <Nav.Link href={props.ref} className="p-0">
+            <Button variant="link" size="sm" className="my-0 text-center text-decoration-none" style={{color:'#445'}}>
+                {props.children}<br/>
+                <p className="mb-0" style={{fontSize:'.8em'}}>{props.title}</p>
+            </Button>
+        </Nav.Link>
+    )
+}
 
 class Main extends Component{
     constructor(props){
@@ -10,12 +23,6 @@ class Main extends Component{
         this.state = {
             mainText: 'Home'
         }
-        this.goTo = this.goTo.bind(this)
-    }
-    goTo(e) {
-        this.setState({
-          mainText: e
-        });
     }
     render(){
         const doLogout = () => {
@@ -25,17 +32,27 @@ class Main extends Component{
         return(
             <div className="container-fluid px-0">
                 {(this.state.mainText == "Home") && <Home/>}
-                <nav className="navbar fixed-bottom navbar-light bg-white border-top" >
-                    <div className="container-fluid mx-3">
-                        <IconContext.Provider value={{ color: "var(--peimary-color)", size: "1.3em"}}>
-                            <div onClick={(e) => this.goTo("Home")} className="text-center text-muted text-decoration-none"><FaHome/><br/><span style={{fontSize:'0.6em'}}>Home</span></div>
-                            <div onClick={(e) => this.goTo("Investasi")} className="text-center text-muted text-decoration-none"><FaChartLine/><br/><span style={{fontSize:'0.6em'}}>Investasi</span></div>
-                            <div onClick={(e) => this.goTo("Dana")} className="text-center text-muted text-decoration-none"><FaMoneyCheckAlt/><br/><span style={{fontSize:'0.6em'}}>Dana</span></div>
-                            <div onClick={(e) => this.goTo("Notifikasi")} className="text-center text-muted text-decoration-none"><FaBell/><br/><span style={{fontSize:'0.6em'}}>Notifikasi</span></div>
-                            <div onClick={(e) => this.goTo("Profile")} className="text-center text-muted text-decoration-none"><FaUserAlt/><br/><span style={{fontSize:'0.6em'}}>Profile</span></div>
-                        </IconContext.Provider>
-                    </div>
-                </nav>
+                <Navbar bg="white" fixed="bottom" className="px-3 border-top">
+                    <Nav activeKey="" className="w-100">
+                        <Nav.Item className="d-flex justify-content-between w-100">
+                            <NavIcon ref="/home" title="Home">
+                                <FaHome size="1.5em"/>
+                            </NavIcon>
+                            <NavIcon ref="/home" title="Notifikasi">
+                                <FaBell size="1.5em"/>
+                            </NavIcon>
+                            <NavIcon ref="/home" title="Favorite">
+                                <FaHeart size="1.5em"/>
+                            </NavIcon>
+                            <NavIcon ref="/home" title="Berita">
+                                <FaNewspaper size="1.5em"/>
+                            </NavIcon>
+                            <NavIcon ref="/home" title="Profil">
+                                <FaUserAlt size="1.5em"/>
+                            </NavIcon>
+                        </Nav.Item>
+                    </Nav>
+                </Navbar>
             </div>
         )
     }

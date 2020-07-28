@@ -9,84 +9,44 @@ import Button from 'react-bootstrap/Button'
 import NavbarBack from './components/NavbarBack'
 import PopularItem from './components/PopularItem'
 import ProductItem from './components/ProductItem'
-//custom-style
+import MenuIcon from './components/MenuIcon'
 // font-awesome
 import { FaBolt, FaHeart } from 'react-icons/fa'
 // self-icon
-import iVegetables from '../../assets/icon/vegetables.png'
-import iVegan from '../../assets/icon/vegan.png'
-import iCarrot from '../../assets/icon/carrot.png'
-import iBean from '../../assets/icon/bean.png'
-import iMushroom from '../../assets/icon/mushroom.png'
+import iMeat from '../../assets/icon/meat.png'
+import iBeef from '../../assets/icon/beef.png'
+import iChicken from '../../assets/icon/chicken.png'
+import iFish from '../../assets/icon/fish.png'
 // dummy-slider
-import sayur1 from '../../assets/img/slider/sayur1.png'
-import sayur2 from '../../assets/img/slider/sayur2.png'
-// dummy-product
-import produk from '../../assets/img/sayur/sayur.png'
+import daging1 from '../../assets/img/slider/daging1.png'
+import daging2 from '../../assets/img/slider/daging2.png'
+// dummy product image
+import produk from '../../assets/img/daging/ayam.jpg'
+// dummy data
+import {dummyProduct} from './data/DummyData'
 
-function Icon(props){
-    return (
-        <Col className="text-center">
-            <img src={props.logo} style={{width:'2.75em'}}/><br/>
-            <div className="mt-1" style={{fontSize:'.9em'}}>{props.title}</div>
-        </Col>
-    )
-}
-
-class MarketSayur extends Component{
+class MarketDaging extends Component{
     render(){
-        const dummyProduct = [
-            {
-                name: 'Kacang polong',
-                rating: 4.8,
-                sold: 8,
-            },
-            {
-                name: 'Kacang polong',
-                rating: 4.8,
-                sold: 8,
-            },
-            {
-                name: 'Kacang polong',
-                rating: 4.8,
-                sold: 8,
-            },
-            {
-                name: 'Kacang polong',
-                rating: 4.8,
-                sold: 8,
-            },
-            {
-                name: 'Kacang polong',
-                rating: 4.8,
-                sold: 8,
-            },
-            {
-                name: 'Kacang polong',
-                rating: 4.8,
-                sold: 8,
-            },
-        ];
+        
         return( 
             <Container fluid> 
-                <NavbarBack title="Sayuran"/>
+                <NavbarBack title="Daging"/>
                 <Row style={{marginTop:'5em'}}>
                     <h4>Kategori</h4>
                 </Row>
                 <Row className="mt-2">
-                    <Icon logo={iVegetables} title="Semua"/>
-                    <Icon logo={iVegan} title="Daun"/>
-                    <Icon logo={iCarrot} title="Umbi"/>
-                    <Icon logo={iBean} title="Kacang"/>
-                    <Icon logo={iMushroom} title="Jamur"/>
+                    <MenuIcon logo={iMeat} title="Semua"/>
+                    <MenuIcon logo={iBeef} title="Merah"/>
+                    <MenuIcon logo={iChicken} title="Unggas"/>
+                    <MenuIcon logo={iFish} title="Ikan"/>
                 </Row>
                 <Row className="mt-4">
                     <Carousel indicators={false} controls={false} fade={false} touch={true}>
                         <Carousel.Item>
-                            <img className="d-block w-100" src={sayur1} alt="First slide" />
+                            <img className="d-block w-100" src={daging1} alt="First slide" />
                         </Carousel.Item>
                         <Carousel.Item>
-                            <img className="d-block w-100" src={sayur2} alt="First slide" />
+                            <img className="d-block w-100" src={daging2} alt="First slide" />
                         </Carousel.Item>
                     </Carousel>
                 </Row>
@@ -115,7 +75,7 @@ class MarketSayur extends Component{
                         );
                     })}
                 </Row>
-                <Button variant="outline-success" size="md" block>
+                <Button variant="outline-danger" size="md" block>
                     Lebih banyak
                 </Button>
             </Container>
@@ -123,4 +83,4 @@ class MarketSayur extends Component{
     }
 }
 
-export default MarketSayur;
+export default MarketDaging;
